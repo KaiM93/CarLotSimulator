@@ -18,6 +18,30 @@ namespace CarLotSimulator
             //Set the properties for each of the cars
             //Call each of the methods for each car
 
+            var focus = new Car();
+            focus.Make = "Benz";
+            focus.Model = "GT63 S";
+            focus.Year = 2023;
+            focus.EngineNoise = "vroom";
+            focus.HonkNoise = "honk";
+            focus.IsDrivable = true;
+
+            var kaisCar = new Car()
+            {
+                Year = 2019,
+                Make = "Volkswagon",
+                Model = "Jetta",
+                EngineNoise = "hmmm",
+                HonkNoise = "beep",
+                IsDrivable = true
+            };
+
+            var willsCar = new Car(2020, "Chevy", "Impala", "mroom", "beep", true);
+
+            focus.MakeEngineNoise(kaisCar.EngineNoise);
+            kaisCar.MakeEngineNoise(kaisCar.EngineNoise);
+            willsCar.MakeEngineNoise(willsCar.EngineNoise);
+
             //*************BONUS*************//
 
             // Set the properties utilizing the 3 different ways we learned about, one way for each car
