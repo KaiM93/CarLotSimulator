@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CarLotSimulator
 {
@@ -6,6 +7,9 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
+            var carLot = new CarLot();
+
+
             //TODO
 
             //Create a seperate class file called Car
@@ -26,6 +30,8 @@ namespace CarLotSimulator
             focus.HonkNoise = "honk";
             focus.IsDrivable = true;
 
+            carLot.ParkingLot.Add(focus);
+
             var kaisCar = new Car()
             {
                 Year = 2019,
@@ -36,11 +42,15 @@ namespace CarLotSimulator
                 IsDrivable = true
             };
 
+            carLot.ParkingLot.Add(kaisCar);
+
             var willsCar = new Car(2020, "Chevy", "Impala", "mroom", "beep", true);
 
             focus.MakeEngineNoise(kaisCar.EngineNoise);
             kaisCar.MakeEngineNoise(kaisCar.EngineNoise);
             willsCar.MakeEngineNoise(willsCar.EngineNoise);
+
+            carLot.ParkingLot.Add(willsCar);
 
             //*************BONUS*************//
 
@@ -52,6 +62,16 @@ namespace CarLotSimulator
             //It should have at least one property: a List of cars
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
+
+            Console.WriteLine($"Number of cars made: {CarLot.numberOfCars}");
+
+
+            foreach(var vehicle in carLot.ParkingLot)
+            {
+                Console.WriteLine($"{vehicle.Year} {vehicle.Make} {vehicle.Model}");
+
+            }
+
         }
     }
 }
